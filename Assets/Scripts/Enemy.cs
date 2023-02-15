@@ -16,9 +16,10 @@ public class Enemy : MonoBehaviour
     public float fireRate;
     public float health;
 
-    void Awake(){
+    void Awake()
+    {
         rb = GetComponent<Rigidbody2D>();
-         }
+    }
 
     void Start()
     {       

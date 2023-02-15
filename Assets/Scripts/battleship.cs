@@ -54,7 +54,7 @@ public class battleship : MonoBehaviour
     {
         delay = 0;
         scal--;
-        if (scal == 0||scal < 0)
+        if (scal == 0 || scal < 0)
         {
                 Instantiate(bullet, gun.transform.position, Quaternion.identity);
         }
