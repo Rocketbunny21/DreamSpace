@@ -152,7 +152,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 324412271b0c24548b21ab091ec52590, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NextLevel: {fileID: 980554856}
 --- !u!4 &168979630
 Transform:
   m_ObjectHideFlags: 0
@@ -698,7 +697,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65cef1590da6aa8449bca69f510ab71a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Score
+  naming: Score
 --- !u!114 &460450487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11138,12 +11137,12 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1159093748}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 2f3db2e715346bb4e8f53b6741f8105e, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.063
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -11293,7 +11292,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65cef1590da6aa8449bca69f510ab71a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Health
+  naming: Health
 --- !u!114 &1312577266
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11491,7 +11490,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65cef1590da6aa8449bca69f510ab71a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Score
+  naming: Score
 --- !u!114 &1434859640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12156,7 +12155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65cef1590da6aa8449bca69f510ab71a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: HighScore
+  naming: HighScore
 --- !u!114 &2024649890
 MonoBehaviour:
   m_ObjectHideFlags: 0
