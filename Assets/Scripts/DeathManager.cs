@@ -36,7 +36,7 @@ public class DeathManager : MonoBehaviour
         PlayerPrefs.SetInt("Score", 0);
         GameOverCanvas.SetActive(false);
         GameCanvas.SetActive(true);
-        SceneManager.LoadScene(scene);
+        SceneManager.LoadScene(1);
     }
     
 }
