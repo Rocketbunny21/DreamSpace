@@ -4,34 +4,36 @@ using UnityEngine;
 
 public class bullet : MonoBehaviour
 {
-    Rigidbody2D rb;
-    int dir = 1;
+    Rigidbody2D _rb;
+    int _dir = 1;
+    private SpriteRenderer _spRender;
 
     void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
+        _rb = GetComponent<Rigidbody2D>();
+        _spRender = GetComponent<SpriteRenderer>();
     }
 
     public void ChangeDirection()
     {
-        dir *= -1;
+        _dir *= -1;
     }
 
     public void ChangeColor(Color col)
     {
-        GetComponent<SpriteRenderer>().color = col;
+        _spRender.color = col;
     }
 
     void Update()
     {
-        rb.velocity = new Vector2(0,12 * dir);
+        _rb.velocity = new Vector2(0,12 * _dir);
     }
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (dir == 1)
+        if (_dir == 1)
         {
-            if (col.gameObject.tag == "Enemy")
+            if (col.gameObject.CompareTag("Enemy"))
             {
                 col.gameObject.GetComponent<Enemy>().Damage();
                 Destroy(gameObject);
@@ -39,7 +41,7 @@ public class bullet : MonoBehaviour
         }
         else
         {
-            if (col.gameObject.tag == "Player")
+            if (col.gameObject.CompareTag("Player"))
             {
                 col.gameObject.GetComponent<battleship>().Damage();
                 Destroy(gameObject);                            

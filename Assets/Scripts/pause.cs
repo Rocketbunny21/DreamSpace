@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,15 +6,21 @@ using UnityEngine;
 public class pause : MonoBehaviour
 {
     public GameObject menu;
-    bool GameisPaused;
+    bool _gameisPaused;
     public GameObject battleship, bullet;
+    private battleship _bShip;
 
+
+    private void Start()
+    {
+        _bShip = battleship.GetComponent<battleship>();
+    }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (GameisPaused)
+            if (_gameisPaused)
             {
                 Continuebut();
             }
@@ -30,10 +37,10 @@ public class pause : MonoBehaviour
     {
         
         menu.SetActive(true);
-        battleship.GetComponent<battleship>().speed = 0;
-        battleship.GetComponent<battleship>().bullet.SetActive(false);
+        _bShip.speed = 0;
+        _bShip.bullet.SetActive(false);
         Time.timeScale = 0f;
-        GameisPaused = true;
+        _gameisPaused = true;
         
     }
 
@@ -41,8 +48,8 @@ public class pause : MonoBehaviour
     {
         menu.SetActive(false);
         Time.timeScale = 1f;
-        battleship.GetComponent<battleship>().speed = 9;
-        battleship.GetComponent<battleship>().bullet.SetActive(true);
-        GameisPaused = false;
+        _bShip.speed = 5;
+        _bShip.bullet.SetActive(true);
+        _gameisPaused = false;
     }
 }

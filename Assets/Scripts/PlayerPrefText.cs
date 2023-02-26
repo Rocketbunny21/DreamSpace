@@ -7,9 +7,10 @@ using UnityEngine.UI;
 public class PlayerPrefText : MonoBehaviour
 {
     [FormerlySerializedAs("name")] public string naming;
+    [SerializeField] private Text textHealth;
 
     void Update()
     {
-        GetComponent<Text>().text = PlayerPrefs.GetInt(naming) + "";
+        textHealth.text = PlayerPrefs.GetInt(naming) + "";
     }
 }

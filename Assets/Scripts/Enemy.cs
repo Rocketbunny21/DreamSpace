@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    Rigidbody2D rb;
+    Rigidbody2D _rb;
     public GameObject bullet, explosion, battery, ab;
-    public Color bulletcolor;
+    public Color bulletСolor;
 
     public float xSpeed;
     public float ySpeed;
@@ -16,9 +16,12 @@ public class Enemy : MonoBehaviour
     public float fireRate;
     public float health;
 
+    
+
     void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
+        _rb = GetComponent<Rigidbody2D>();
+        
     }
 
     void Start()
@@ -30,12 +33,12 @@ public class Enemy : MonoBehaviour
     
     void Update () 
     {
-        rb.velocity = new Vector2(xSpeed, ySpeed * -1);
+        _rb.velocity = new Vector2(xSpeed, ySpeed * -1);
     }
 
     void OnCollisionEnter2D(Collision2D col) 
     {
-        if (col.gameObject.tag == "Player")
+        if (col.gameObject.CompareTag("Player"))
         {
             col.gameObject.GetComponent<battleship>().Damage();
             Die();
@@ -68,6 +71,6 @@ public class Enemy : MonoBehaviour
     {
         GameObject temp = (GameObject)Instantiate(bullet, transform.position, Quaternion.identity);
         temp.GetComponent<bullet>().ChangeDirection();
-        temp.GetComponent<bullet>().ChangeColor(bulletcolor);
+        temp.GetComponent<bullet>().ChangeColor(bulletСolor);
     }
 }

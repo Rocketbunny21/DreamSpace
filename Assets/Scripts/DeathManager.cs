@@ -2,41 +2,41 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 
 public class DeathManager : MonoBehaviour
 {
-    GameObject player;
-    bool gameOver = false;
-    public GameObject GameCanvas;
-    public GameObject GameOverCanvas;
+    GameObject _player;
+     bool _gameOver = false;
+    public GameObject gameCanvas;
+    public GameObject gameOverCanvas;
     public int scene;
 
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        _player = GameObject.FindGameObjectWithTag("Player");
     }
 
     void Update()
     {
-        if (player == null&&!gameOver)
-            GameOver();
+        //if (player == null&&!gameOver)
+           // GameOver();
     }
 
-    void GameOver()
+    public void GameOver()
     {
-        GameOverCanvas.SetActive(true);
-        GameCanvas.SetActive(false);
-        gameOver = true;
+        gameOverCanvas.SetActive(true);
+        gameCanvas.SetActive(false);
+        _gameOver = true;
         if (PlayerPrefs.GetInt("Score") > PlayerPrefs.GetInt("HighScore"))
             PlayerPrefs.SetInt("HighScore", PlayerPrefs.GetInt("Score"));
+        
     }
 
     public void Restart()
     {
         PlayerPrefs.SetInt("Score", 0);
-        GameOverCanvas.SetActive(false);
-        GameCanvas.SetActive(true);
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     
 }
