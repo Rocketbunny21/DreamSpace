@@ -36,16 +36,16 @@ public class Enemy : MonoBehaviour
         _rb.velocity = new Vector2(xSpeed, ySpeed * -1);
     }
 
-    void OnCollisionEnter2D(Collision2D col) 
-    {
-        if (col.gameObject.CompareTag("Player"))
-        {
-            col.gameObject.GetComponent<battleship>().Damage();
-            Die();
-        }
-            
-    }
-    void Die()
+    // void OnCollisionEnter2D(Collision2D col) 
+    // {
+    //     if (col.gameObject.CompareTag("Player"))
+    //     {
+    //         col.gameObject.GetComponent<battleship>().Damage();
+    //         Die();
+    //     }
+    //         
+    // }
+    public void Die()
     {
         if ((int)Random.Range(0, 3) == 0)
         {

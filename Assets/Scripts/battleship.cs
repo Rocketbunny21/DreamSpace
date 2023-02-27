@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -36,6 +38,20 @@ public class battleship : MonoBehaviour
         _delay++;
 
     }
+
+    private void OnCollisionEnter2D(Collision2D col)
+    {
+        
+        // case: Enemy, DoubleGun, Heal and other;
+        
+        if (CompareTag("Enemy"))
+        {
+            Damage();
+            col.gameObject.GetComponent<Enemy>().Die();
+        }
+    }
+    
+
     public void Damage()
     {
         _health--;
