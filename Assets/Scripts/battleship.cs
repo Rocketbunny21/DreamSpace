@@ -39,12 +39,24 @@ public class battleship : MonoBehaviour
 
     }
 
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        switch(col.gameObject.tag){
+            case "Health":
+                AddHealth();
+                Destroy(col.gameObject);
+                break;
+            case "DoubleDamage":
+                AddGun();
+                Destroy(col.gameObject);
+                break;
+
+        }
+    }
+
     private void OnCollisionEnter2D(Collision2D col)
     {
-        
-        // case: Enemy, DoubleGun, Heal and other;
-        
-        if (CompareTag("Enemy"))
+        if (col.gameObject.CompareTag("Enemy"))
         {
             Damage();
             col.gameObject.GetComponent<Enemy>().Die();

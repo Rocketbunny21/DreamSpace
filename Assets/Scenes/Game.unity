@@ -698,7 +698,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   naming: Score
-  textHealth: {fileID: 0}
+  textHealth: {fileID: 460450487}
 --- !u!114 &460450487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11493,7 +11493,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   naming: Score
-  textHealth: {fileID: 0}
+  textHealth: {fileID: 1434859640}
 --- !u!114 &1434859640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12159,7 +12159,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   naming: HighScore
-  textHealth: {fileID: 0}
+  textHealth: {fileID: 2024649890}
 --- !u!114 &2024649890
 MonoBehaviour:
   m_ObjectHideFlags: 0
