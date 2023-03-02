@@ -324,6 +324,22 @@ MonoBehaviour:
   - {fileID: 331721651178682176, guid: 3e615e3676b54bd41987b9c76f0bbe85, type: 3}
   - {fileID: 5640526649088820154, guid: 9a1585e4de2738d4b929fdc599220073, type: 3}
   waves: 1
+  _bitRate:
+  - 0.27
+  - 0.27
+  - 0.27
+  - 5
+  - 0.27
+  - 0.27
+  - 5
+  - 0.27
+  - 0.27
+  - 2
+  - 0.27
+  - 0.27
+  - 2
+  - 0.27
+  - 0.27
 --- !u!1 &301802328
 GameObject:
   m_ObjectHideFlags: 0
@@ -11138,12 +11154,12 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1159093748}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 2f3db2e715346bb4e8f53b6741f8105e, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.03
+  m_Volume: 0.073
   m_Pitch: 1
   Loop: 0
   Mute: 0

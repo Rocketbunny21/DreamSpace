@@ -7,16 +7,32 @@ public class Spawn : MonoBehaviour
     public float rate;
     public GameObject[] enemies;
     public int waves = 1;
-    
-    void Start()
+    [SerializeField] private List<float> _bitRate;
+    private int _countBit = 0;
+
+    private void Start()
     {
-        InvokeRepeating("SpawnEnemy", rate, rate);
+        StartCoroutine(BitSpawn());
+        //InvokeRepeating("SpawnEnemy", rate, rate);
     }
 
-    
-    void SpawnEnemy()
+    private IEnumerator BitSpawn()
     {
-        for(int i=0; i<waves;i++)
-            Instantiate(enemies[(int)Random.Range(0, enemies.Length)], new Vector3(Random.Range(-8.5f, 8.5f), 7, 0), Quaternion.identity);
+        yield return new WaitForSeconds(_bitRate[_countBit]);
+        Instantiate(enemies[(int)Random.Range(0, enemies.Length)], new Vector3(Random.Range(-8.5f, 8.5f), 7, 0), Quaternion.identity); 
+        
+        
+        
+        _countBit++;
+        if (_countBit >= _bitRate.Count) _countBit = 0;
+    
+        StartCoroutine(BitSpawn());
     }
+    
+    
+    // void SpawnEnemy()
+    // {
+    //     for(int i=0; i<waves;i++)
+    //         Instantiate(enemies[(int)Random.Range(0, enemies.Length)], new Vector3(Random.Range(-8.5f, 8.5f), 7, 0), Quaternion.identity);
+    // }
 }
