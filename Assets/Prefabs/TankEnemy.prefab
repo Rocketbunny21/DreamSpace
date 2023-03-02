@@ -30,6 +30,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -8.391701, y: 1.3583449, z: 0}
   m_LocalScale: {x: 0.5383532, y: 0.59414023, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -208,7 +209,7 @@ MonoBehaviour:
   explosion: {fileID: 6071269030076177388, guid: 24c8d396f56abd84bba01d075895319b, type: 3}
   battery: {fileID: 6781729145697432795, guid: 39089e0e230f70c4bb69c50dbf337b78, type: 3}
   ab: {fileID: 1465580367133098459, guid: 3c44912af0ee6d8499d32a8caf45d4b9, type: 3}
-  bulletcolor: {r: 0, g: 0.08231368, b: 0.9811321, a: 1}
+  "bullet\u0421olor": {r: 1, g: 0, b: 0, a: 1}
   xSpeed: 0
   ySpeed: 1
   score: 350
