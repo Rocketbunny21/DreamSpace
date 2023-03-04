@@ -39,7 +39,7 @@ public class Spawn : MonoBehaviour
         musicSource = GetComponent<AudioSource>();
 
         //Calculate the number of seconds in each beat
-        secPerBeat = 60f / songBpm;
+        secPerBeat = (60f / songBpm)*2;
 
         //Record the time when the music starts
         dspSongTime = (float)AudioSettings.dspTime;
