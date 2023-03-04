@@ -199,3 +199,5 @@ MonoBehaviour:
   canShoot: 1
   fireRate: 2
   health: 2
+  speedAfterTrigger: 3
+  startSpeed: 10

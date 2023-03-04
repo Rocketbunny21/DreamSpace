@@ -1,13 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Enemy : MonoBehaviour
 {
     Rigidbody2D _rb;
     public GameObject bullet, explosion, battery, ab;
     public Color bulletСolor;
-
+    
+    
     public float xSpeed;
     public float ySpeed;
     public int score;
@@ -16,23 +18,29 @@ public class Enemy : MonoBehaviour
     public float fireRate;
     public float health;
 
+    [SerializeField] private float speedAfterTrigger;
+    [SerializeField] private float startSpeed;
+
     
 
     void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
         
+
     }
 
     void Start()
     {       
+        
         if (!canShoot) return;
         fireRate = fireRate + (Random.Range(fireRate / -2, fireRate / 2));
             InvokeRepeating("Shoot", fireRate, fireRate);
     }
     
-    void Update () 
+    void Update ()
     {
+        ySpeed = transform.position.y > 4.5 ?  startSpeed : speedAfterTrigger;
         _rb.velocity = new Vector2(xSpeed, ySpeed * -1);
     }
 
