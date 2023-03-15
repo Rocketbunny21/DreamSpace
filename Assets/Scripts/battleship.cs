@@ -7,15 +7,26 @@ using UnityEngine.Serialization;
 
 public class battleship : MonoBehaviour
 {
-    int _delay = 0;
-    public GameObject gun, gun1, gun2;
-    public GameObject bullet, explosion;
-    Rigidbody2D rb;
     [SerializeField] private DeathManager deathManager;
-    public float speed;
+    [SerializeField] private float fireRate = 1f;
+    [SerializeField] public float speed;
+
+    private float _acceleration;
+    
+    int _delay = 0;
     int _health = 3;
     int _scal = 0;
+    
+    public GameObject gun, gun1, gun2;
+    public GameObject bullet, explosion;
+    
+    Rigidbody2D rb;
+    
+    
+    
+    
     private SpriteRenderer _spriteShip;
+    
 
     void Awake()
     {
@@ -23,22 +34,38 @@ public class battleship : MonoBehaviour
         _spriteShip = GetComponent<SpriteRenderer>();
     }
 
-    void Start()
+    private void Start()
     {
         PlayerPrefs.SetInt("Health", _health);
     }
 
-    void Update()
+    private void Update()
     {
-        rb.AddForce(new Vector2(Input.GetAxis("Horizontal") * speed, 0));
-        rb.AddForce(new Vector2(0, Input.GetAxis("Vertical") * speed));
-        if (Input.GetKey(KeyCode.Space) && _delay > 15)
-            Shoot();
-
-        _delay++;
+        Control();
 
     }
 
+
+    // ReSharper disable Unity.PerformanceAnalysis
+    private void Control()
+    {
+        rb.AddForce(new Vector2(Input.GetAxis("Horizontal") * speed, 0));
+        rb.AddForce(new Vector2(0, Input.GetAxis("Vertical") * speed));
+        
+        
+        if (Input.GetKeyDown(KeyCode.Space)){
+            InvokeRepeating(nameof(Shoot),fireRate,fireRate);
+        }
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            Shoot();
+            CancelInvoke(nameof(Shoot));
+        }
+            
+
+        
+    }
+    
     private void OnTriggerEnter2D(Collider2D col)
     {
         switch(col.gameObject.tag){
