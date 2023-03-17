@@ -176,11 +176,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 201079288}
+  - component: {fileID: 201079289}
   - component: {fileID: 201079287}
   - component: {fileID: 201079286}
   - component: {fileID: 201079285}
   - component: {fileID: 201079284}
-  - component: {fileID: 201079289}
   - component: {fileID: 201079290}
   m_Layer: 7
   m_Name: Granici
