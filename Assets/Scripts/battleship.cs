@@ -39,7 +39,21 @@ public class battleship : MonoBehaviour
         PlayerPrefs.SetInt("Health", _health);
     }
 
+
     private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space)){
+            InvokeRepeating(nameof(Shoot),fireRate,fireRate);
+        }
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            Shoot();
+            CancelInvoke(nameof(Shoot));
+        }
+    }
+
+
+    private void FixedUpdate()
     {
         Control();
 
@@ -53,14 +67,7 @@ public class battleship : MonoBehaviour
         rb.AddForce(new Vector2(0, Input.GetAxis("Vertical") * speed));
         
         
-        if (Input.GetKeyDown(KeyCode.Space)){
-            InvokeRepeating(nameof(Shoot),fireRate,fireRate);
-        }
-        if (Input.GetKeyUp(KeyCode.Space))
-        {
-            Shoot();
-            CancelInvoke(nameof(Shoot));
-        }
+        
             
 
         
